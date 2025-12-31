@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthService } from '../../data/authService';
 
 interface NavbarProps {
   onMenuClick: () => void;
@@ -36,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick, userRole }) => {
   };
 
   const handleLogout = () => {
-    // In a real app, this would clear authentication tokens
+    AuthService.logout();
     navigate('/login');
   };
 

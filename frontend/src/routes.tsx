@@ -9,10 +9,16 @@ import AdminUsers from "./pages/admin/Users";
 import AdminCourses from "./pages/admin/Courses";
 import AdminPageWrapper from "./components/layout/admin/PageWrapper";
 import RequireAuth from "./auth/RequireAuth";
+import Login from "./auth/Login";
 
 export default function AppRoutes() {
+  console.log('AppRoutes component rendering');
+
   return (
     <Routes>
+      {/* Login Route */}
+      <Route path="/login" element={<Login />} />
+
       {/* Student Routes */}
       <Route
         path="/student/dashboard"
@@ -90,7 +96,12 @@ export default function AppRoutes() {
       />
 
       {/* Default redirect */}
-      <Route path="*" element={<Navigate to="/student/dashboard" replace />} />
+      <Route path="*" element={
+        <>
+          {console.log('Redirecting to /login')}
+          <Navigate to="/login" replace />
+        </>
+      } />
     </Routes>
   );
 }

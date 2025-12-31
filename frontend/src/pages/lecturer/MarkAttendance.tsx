@@ -1,12 +1,13 @@
 import { useState } from "react";
 import PageWrapper from "../../components/layout/lecturer/PageWrapper";
 import Button from "../../components/common/Button";
-import { getLecturerById, getCoursesByLecturerId, type Course } from "../../data/mockLecturerData";
+import { getCoursesByLecturerId, type Course } from "../../data/mockLecturerData";
+import { getCurrentLecturer } from "../../data/authService";
 import { mockStudents, mockAttendanceRecords } from "../../data/mockStudentData";
 
 export default function LecturerMarkAttendance() {
-  // For demo purposes, using the first lecturer
-  const currentLecturer = getLecturerById('LEC001');
+  // Get the current authenticated lecturer
+  const currentLecturer = getCurrentLecturer();
   const courses = currentLecturer ? getCoursesByLecturerId(currentLecturer.id) : [];
 
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(courses[0] || null);
@@ -290,3 +291,4 @@ export default function LecturerMarkAttendance() {
     </PageWrapper>
   );
 }
+

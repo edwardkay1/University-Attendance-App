@@ -3,7 +3,9 @@ import { StatusBadge } from '../../components/common/StatusBadge';
 import { mockStudents } from '../../data/mockStudentData';
 import { mockLecturers } from '../../data/mockLecturerData';
 import { mockAdmins } from '../../data/mockAdminData';
-import { Student, Lecturer, Admin } from '../../types/admin';
+import { Student } from '../../types/student';
+import { Lecturer } from '../../types/lecturer';
+import { Admin } from '../../types/admin';
 
 const Users: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'students' | 'lecturers' | 'admins'>('students');

@@ -65,19 +65,24 @@ export const getSystemStats = (): SystemStats => {
 
 export const getCourseStats = (): CourseStats[] => {
   return mockCourses.map(course => {
-    // This would need attendance records from student data
-    // For now, returning mock stats
+    const courseAttendance = mockAttendanceRecords.filter(record =>
+      record.subject.toLowerCase().includes(course.code.toLowerCase())
+    );
+
     const totalClasses = course.schedule.length * 4; // Assuming 4 weeks per month
+    const presentCount = courseAttendance.filter(record => record.status === 'present').length;
+    const attendanceRate = totalClasses > 0 ? Math.round((presentCount / totalClasses) * 100) : 0;
 
     return {
       courseId: course.id,
       courseName: course.name,
       totalStudents: mockStudents.filter(student =>
-        student.course.toLowerCase().includes(course.name.split(' ')[0].toLowerCase())
+        student.course.toLowerCase().includes(course.department.toLowerCase()) ||
+        course.department.toLowerCase().includes(student.course.toLowerCase())
       ).length,
-      averageAttendance: Math.floor(Math.random() * 40) + 60, // Mock attendance rate
+      averageAttendance: attendanceRate,
       totalClasses,
-      attendanceRate: Math.floor(Math.random() * 40) + 60
+      attendanceRate
     };
   });
 };

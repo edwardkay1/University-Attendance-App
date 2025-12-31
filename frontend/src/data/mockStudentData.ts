@@ -89,7 +89,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '1',
     studentId: '1',
-    subject: 'Data Structures',
+    subject: 'CS101',
     date: '2025-12-28',
     time: '09:00',
     status: 'present',
@@ -98,7 +98,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '2',
     studentId: '1',
-    subject: 'Algorithms',
+    subject: 'CS101',
     date: '2025-12-27',
     time: '10:30',
     status: 'present',
@@ -107,7 +107,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '3',
     studentId: '1',
-    subject: 'Database Systems',
+    subject: 'CS101',
     date: '2025-12-26',
     time: '14:00',
     status: 'absent',
@@ -118,7 +118,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '4',
     studentId: '2',
-    subject: 'Programming Fundamentals',
+    subject: 'CS101',
     date: '2025-12-28',
     time: '09:00',
     status: 'present',
@@ -127,7 +127,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '5',
     studentId: '2',
-    subject: 'Web Development',
+    subject: 'CS101',
     date: '2025-12-27',
     time: '11:00',
     status: 'late',
@@ -138,7 +138,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '6',
     studentId: '3',
-    subject: 'Calculus',
+    subject: 'MATH201',
     date: '2025-12-28',
     time: '08:00',
     status: 'present',
@@ -147,7 +147,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '7',
     studentId: '3',
-    subject: 'Linear Algebra',
+    subject: 'MATH201',
     date: '2025-12-27',
     time: '13:00',
     status: 'present',
@@ -158,7 +158,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '8',
     studentId: '4',
-    subject: 'Quantum Physics',
+    subject: 'PHY101',
     date: '2025-12-28',
     time: '10:00',
     status: 'present',
@@ -167,7 +167,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '9',
     studentId: '4',
-    subject: 'Thermodynamics',
+    subject: 'PHY101',
     date: '2025-12-26',
     time: '15:00',
     status: 'absent',
@@ -178,7 +178,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '10',
     studentId: '5',
-    subject: 'Organic Chemistry',
+    subject: 'PHY101',
     date: '2025-12-28',
     time: '09:30',
     status: 'present',
@@ -187,7 +187,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '11',
     studentId: '5',
-    subject: 'Physical Chemistry',
+    subject: 'PHY101',
     date: '2025-12-27',
     time: '14:30',
     status: 'present',
@@ -198,7 +198,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '12',
     studentId: '6',
-    subject: 'Molecular Biology',
+    subject: 'PHY101',
     date: '2025-12-28',
     time: '11:00',
     status: 'present',
@@ -207,7 +207,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '13',
     studentId: '6',
-    subject: 'Genetics',
+    subject: 'PHY101',
     date: '2025-12-26',
     time: '16:00',
     status: 'late',
@@ -218,7 +218,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '14',
     studentId: '7',
-    subject: 'Mechanical Engineering',
+    subject: 'PHY101',
     date: '2025-12-28',
     time: '08:30',
     status: 'present',
@@ -227,7 +227,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '15',
     studentId: '7',
-    subject: 'Electrical Engineering',
+    subject: 'PHY101',
     date: '2025-12-27',
     time: '12:00',
     status: 'present',
@@ -238,7 +238,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '16',
     studentId: '8',
-    subject: 'Business Strategy',
+    subject: 'PHY101',
     date: '2025-12-28',
     time: '13:00',
     status: 'absent',
@@ -247,7 +247,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '17',
     studentId: '8',
-    subject: 'Marketing',
+    subject: 'PHY101',
     date: '2025-12-27',
     time: '15:00',
     status: 'present',
@@ -258,7 +258,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '18',
     studentId: '9',
-    subject: 'World History',
+    subject: 'PHY101',
     date: '2025-12-28',
     time: '10:00',
     status: 'present',
@@ -267,7 +267,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '19',
     studentId: '9',
-    subject: 'Ancient Civilizations',
+    subject: 'PHY101',
     date: '2025-12-26',
     time: '11:30',
     status: 'present',
@@ -278,7 +278,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '20',
     studentId: '10',
-    subject: 'English Literature',
+    subject: 'PHY101',
     date: '2025-12-28',
     time: '14:00',
     status: 'present',
@@ -287,7 +287,7 @@ export const mockAttendanceRecords: AttendanceRecord[] = [
   {
     id: '21',
     studentId: '10',
-    subject: 'Creative Writing',
+    subject: 'PHY101',
     date: '2025-12-27',
     time: '16:00',
     status: 'late',

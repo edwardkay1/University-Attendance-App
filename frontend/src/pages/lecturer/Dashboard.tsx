@@ -1,11 +1,12 @@
 import PageWrapper from "../../components/layout/lecturer/PageWrapper";
 import QRCodeGenerator from "../../components/common/QRCodeGenerator";
 import { getLecturerById, getCoursesByLecturerId, getActiveQRSessions, type QRCodeSession } from "../../data/mockLecturerData";
+import { getCurrentLecturer } from "../../data/authService";
 import { useState } from "react";
 
 export default function LecturerDashboard() {
-  // For demo purposes, using the first lecturer
-  const currentLecturer = getLecturerById('LEC001');
+  // Get the current authenticated lecturer
+  const currentLecturer = getCurrentLecturer();
   const courses = currentLecturer ? getCoursesByLecturerId(currentLecturer.id) : [];
   const activeSessions = getActiveQRSessions();
 
@@ -191,3 +192,5 @@ export default function LecturerDashboard() {
     </PageWrapper>
   );
 }
+
+

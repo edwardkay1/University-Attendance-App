@@ -30,23 +30,23 @@ const AdminDashboard: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-          <p className="text-gray-600 mt-1">System overview and management</p>
+          <p className="mt-1 text-gray-600">System overview and management</p>
         </div>
         <div className="flex space-x-3">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+          <button className="px-4 py-2 font-medium text-white transition-colors bg-blue-600 rounded-lg hover:bg-blue-700">
             Generate Report
           </button>
-          <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+          <button className="px-4 py-2 font-medium text-white transition-colors bg-green-600 rounded-lg hover:bg-green-700">
             System Settings
           </button>
         </div>
       </div>
 
       {/* System Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         <AttendanceStat
           title="Total Students"
           value={systemStats.totalStudents}
@@ -78,17 +78,17 @@ const AdminDashboard: React.FC = () => {
       </div>
 
       {/* System Health */}
-      <div className="bg-white rounded-lg shadow-sm border p-6">
+      <div className="p-6 bg-white border rounded-lg shadow-sm">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-lg font-semibold text-gray-900">System Health</h3>
-            <p className="text-gray-600 mt-1">Overall system status and performance</p>
+            <p className="mt-1 text-gray-600">Overall system status and performance</p>
           </div>
           <StatusBadge status={systemStats.systemHealth === 'healthy' ? 'success' : 'warning'}>
             {systemStats.systemHealth.toUpperCase()}
           </StatusBadge>
         </div>
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
           <div className="text-center">
             <div className="text-2xl font-bold text-green-600">{systemStats.totalAttendanceRecords}</div>
             <div className="text-sm text-gray-600">Attendance Records</div>
@@ -104,13 +104,13 @@ const AdminDashboard: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Recent Activity */}
-        <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h3>
+        <div className="p-6 bg-white border rounded-lg shadow-sm">
+          <h3 className="mb-4 text-lg font-semibold text-gray-900">Recent Activity</h3>
           <div className="space-y-4">
             {recentActivity.map((activity: ActivityLog) => (
-              <div key={activity.id} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+              <div key={activity.id} className="flex items-start p-3 space-x-3 rounded-lg bg-gray-50">
                 <div className="flex-shrink-0">
                   <div className={`w-2 h-2 rounded-full mt-2 ${
                     activity.userType === 'student' ? 'bg-green-500' :
@@ -126,8 +126,8 @@ const AdminDashboard: React.FC = () => {
                       {activity.action.replace('_', ' ')}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600 mt-1">{activity.details}</p>
-                  <p className="text-xs text-gray-500 mt-1">{formatTimestamp(activity.timestamp)}</p>
+                  <p className="mt-1 text-sm text-gray-600">{activity.details}</p>
+                  <p className="mt-1 text-xs text-gray-500">{formatTimestamp(activity.timestamp)}</p>
                 </div>
               </div>
             ))}
@@ -135,11 +135,11 @@ const AdminDashboard: React.FC = () => {
         </div>
 
         {/* Course Performance */}
-        <div className="bg-white rounded-lg shadow-sm border p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Course Performance</h3>
+        <div className="p-6 bg-white border rounded-lg shadow-sm">
+          <h3 className="mb-4 text-lg font-semibold text-gray-900">Course Performance</h3>
           <div className="space-y-4">
             {courseStats.slice(0, 5).map((course) => (
-              <div key={course.courseId} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div key={course.courseId} className="flex items-center justify-between p-3 rounded-lg bg-gray-50">
                 <div>
                   <h4 className="text-sm font-medium text-gray-900">{course.courseName}</h4>
                   <p className="text-xs text-gray-600">{course.totalStudents} students</p>
@@ -155,18 +155,18 @@ const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white rounded-lg shadow-sm border p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button className="flex items-center justify-center space-x-2 p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-colors">
+      <div className="p-6 bg-white border rounded-lg shadow-sm">
+        <h3 className="mb-4 text-lg font-semibold text-gray-900">Quick Actions</h3>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <button className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-blue-500 hover:bg-blue-50">
             <span className="text-2xl">👤</span>
             <span className="text-sm font-medium text-gray-700">Add New User</span>
           </button>
-          <button className="flex items-center justify-center space-x-2 p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-green-500 hover:bg-green-50 transition-colors">
+          <button className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-green-500 hover:bg-green-50">
             <span className="text-2xl">📚</span>
             <span className="text-sm font-medium text-gray-700">Create Course</span>
           </button>
-          <button className="flex items-center justify-center space-x-2 p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-purple-500 hover:bg-purple-50 transition-colors">
+          <button className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-purple-500 hover:bg-purple-50">
             <span className="text-2xl">📊</span>
             <span className="text-sm font-medium text-gray-700">View Reports</span>
           </button>
@@ -177,3 +177,4 @@ const AdminDashboard: React.FC = () => {
 };
 
 export default AdminDashboard;
+

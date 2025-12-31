@@ -10,13 +10,13 @@ export default function StudentAttendance() {
   if (!currentStudent || !stats) {
     return (
       <PageWrapper>
-        <div className="text-center py-12">
-          <div className="w-16 h-16 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="py-12 text-center">
+          <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-red-400 to-pink-500">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
             </svg>
           </div>
-          <p className="text-gray-600 text-lg">Student data not found</p>
+          <p className="text-lg text-gray-600">Student data not found</p>
         </div>
       </PageWrapper>
     );
@@ -26,15 +26,15 @@ export default function StudentAttendance() {
     <PageWrapper>
       <div className="space-y-8">
         {/* Header */}
-        <div className="bg-gradient-to-r from-green-600 via-teal-600 to-blue-700 rounded-2xl p-8 text-white shadow-xl">
+        <div className="p-8 text-white shadow-xl bg-gradient-to-r from-green-600 via-teal-600 to-blue-700 rounded-2xl">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold mb-2">My Attendance Records 📚</h1>
-              <p className="text-green-100 text-lg">Track your academic attendance history</p>
-              <p className="text-green-200 text-sm mt-2">Student: {currentStudent.name} • {currentStudent.studentId}</p>
+              <h1 className="mb-2 text-4xl font-bold">My Attendance Records 📚</h1>
+              <p className="text-lg text-green-100">Track your academic attendance history</p>
+              <p className="mt-2 text-sm text-green-200">Student: {currentStudent.name} • {currentStudent.studentId}</p>
             </div>
             <div className="hidden md:block">
-              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+              <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
@@ -44,11 +44,11 @@ export default function StudentAttendance() {
         </div>
 
         {/* Attendance Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-white shadow-lg">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+          <div className="p-6 text-white shadow-lg bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm font-medium">Total Classes</p>
+                <p className="text-sm font-medium text-blue-100">Total Classes</p>
                 <p className="text-2xl font-bold">{stats.totalClasses}</p>
               </div>
               <svg className="w-8 h-8 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,10 +57,10 @@ export default function StudentAttendance() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="p-6 text-white shadow-lg bg-gradient-to-br from-green-500 to-green-600 rounded-2xl">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-green-100 text-sm font-medium">Present</p>
+                <p className="text-sm font-medium text-green-100">Present</p>
                 <p className="text-2xl font-bold">{stats.presentCount}</p>
               </div>
               <svg className="w-8 h-8 text-green-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,10 +69,10 @@ export default function StudentAttendance() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="p-6 text-white shadow-lg bg-gradient-to-br from-red-500 to-red-600 rounded-2xl">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-red-100 text-sm font-medium">Absent</p>
+                <p className="text-sm font-medium text-red-100">Absent</p>
                 <p className="text-2xl font-bold">{stats.absentCount}</p>
               </div>
               <svg className="w-8 h-8 text-red-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,10 +81,10 @@ export default function StudentAttendance() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
+          <div className="p-6 text-white shadow-lg bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-purple-100 text-sm font-medium">Attendance Rate</p>
+                <p className="text-sm font-medium text-purple-100">Attendance Rate</p>
                 <p className="text-2xl font-bold">{stats.attendanceRate}%</p>
               </div>
               <svg className="w-8 h-8 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@ export default function StudentAttendance() {
         </div>
 
         {/* Detailed Attendance Table */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="overflow-hidden bg-white shadow-lg rounded-2xl">
           <div className="p-8 border-b border-gray-200">
             <div className="flex items-center justify-between">
               <h3 className="text-2xl font-bold text-gray-900">Detailed Records</h3>
@@ -109,19 +109,19 @@ export default function StudentAttendance() {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                     Date
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                     Subject
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                     Time
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                     Lecturer
                   </th>
                 </tr>
@@ -158,7 +158,7 @@ export default function StudentAttendance() {
                         {record.status.charAt(0).toUpperCase() + record.status.slice(1)}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">
                       {record.time}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -171,11 +171,11 @@ export default function StudentAttendance() {
           </div>
 
           {attendanceRecords.length === 0 && (
-            <div className="text-center py-12">
-              <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="py-12 text-center">
+              <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
-              <p className="text-gray-500 text-lg">No attendance records found</p>
+              <p className="text-lg text-gray-500">No attendance records found</p>
             </div>
           )}
         </div>
@@ -183,3 +183,4 @@ export default function StudentAttendance() {
     </PageWrapper>
   );
 }
+

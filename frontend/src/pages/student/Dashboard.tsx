@@ -1,11 +1,12 @@
 import PageWrapper from "../../components/layout/student/PageWrapper";
 import AttendanceScanner from "../../components/common/AttendanceScanner";
 import { getStudentById, getStudentStats, getStudentAttendanceRecords } from "../../data/mockStudentData";
+import { getCurrentStudent } from "../../data/authService";
 import { useState } from "react";
 
 export default function StudentDashboard() {
-  // For demo purposes, using the first student
-  const currentStudent = getStudentById('1');
+  // Get the current authenticated student
+  const currentStudent = getCurrentStudent();
   const stats = currentStudent ? getStudentStats(currentStudent.id) : null;
   const recentRecords = currentStudent ? getStudentAttendanceRecords(currentStudent.id).slice(0, 3) : [];
 
@@ -214,3 +215,4 @@ export default function StudentDashboard() {
     </PageWrapper>
   );
 }
+

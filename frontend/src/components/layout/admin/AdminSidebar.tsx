@@ -24,16 +24,6 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onToggle }) => {
       name: 'Courses',
       path: '/admin/courses',
       icon: '📚'
-    },
-    {
-      name: 'Reports',
-      path: '/admin/reports',
-      icon: '📈'
-    },
-    {
-      name: 'Settings',
-      path: '/admin/settings',
-      icon: '⚙️'
     }
   ];
 
@@ -42,7 +32,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onToggle }) => {
       {/* Mobile overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
           onClick={onToggle}
         />
       )}
@@ -57,13 +47,13 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onToggle }) => {
           <h2 className="text-xl font-bold text-gray-900">Admin Panel</h2>
           <button
             onClick={onToggle}
-            className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+            className="p-2 text-gray-400 rounded-md lg:hidden hover:text-gray-600 hover:bg-gray-100"
           >
             ✕
           </button>
         </div>
 
-        <nav className="mt-6 px-4">
+        <nav className="px-4 mt-6">
           <ul className="space-y-2">
             {menuItems.map((item) => {
               const isActive = location.pathname === item.path;
@@ -85,7 +75,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onToggle }) => {
                       }
                     }}
                   >
-                    <span className="text-lg mr-3">{item.icon}</span>
+                    <span className="mr-3 text-lg">{item.icon}</span>
                     {item.name}
                   </Link>
                 </li>
@@ -97,7 +87,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onToggle }) => {
         {/* User info section */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
+            <div className="flex items-center justify-center w-8 h-8 text-sm font-medium text-white bg-blue-600 rounded-full">
               A
             </div>
             <div className="flex-1 min-w-0">
@@ -105,7 +95,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onToggle }) => {
               <p className="text-xs text-gray-500 truncate">admin@university.edu</p>
             </div>
           </div>
-          <button className="mt-3 w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors">
+          <button className="w-full px-3 py-2 mt-3 text-sm text-left text-gray-700 transition-colors rounded-md hover:bg-gray-100">
             Sign Out
           </button>
         </div>
