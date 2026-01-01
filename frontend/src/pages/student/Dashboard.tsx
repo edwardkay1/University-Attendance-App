@@ -1,6 +1,6 @@
 import PageWrapper from "../../components/layout/student/PageWrapper";
 import AttendanceScanner from "../../components/common/AttendanceScanner";
-import { getStudentById, getStudentStats, getStudentAttendanceRecords } from "../../data/mockStudentData";
+import { getStudentStats, getStudentAttendanceRecords } from "../../data/mockStudentData";
 import { getCurrentStudent } from "../../data/authService";
 import { useState } from "react";
 

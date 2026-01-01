@@ -21,6 +21,22 @@ export interface LoginCredentials {
   userType: UserType;
 }
 
+export interface RegisterCredentials {
+  name: string;
+  email: string;
+  password: string;
+  userType: UserType;
+  facultyId: string;
+  studentId?: string;
+  employeeId?: string;
+  department?: string;
+  course?: string;
+  year?: number;
+  isApproved?: boolean;
+  approvedBy?: string;
+  approvedAt?: string;
+}
+
 // Authentication service
 export class AuthService {
   static login(credentials: LoginCredentials): AuthUser | null {
@@ -69,6 +85,33 @@ export class AuthService {
     }
 
     return null;
+  }
+
+  static register(credentials: RegisterCredentials): boolean {
+    const { name, email, password, userType, facultyId, studentId, employeeId, department, course, year } = credentials;
+
+    try {
+      switch (userType) {
+        case 'student': {
+          if (!studentId || !course || !year) return false;
+          // This would normally save to a database
+          // For now, we'll just return true to simulate success
+          console.log('Student registration:', { name, email, facultyId, studentId, course, year });
+          return true;
+        }
+        case 'lecturer': {
+          if (!employeeId || !department) return false;
+          // This would normally save to a database
+          console.log('Lecturer registration:', { name, email, facultyId, employeeId, department });
+          return true;
+        }
+        default:
+          return false;
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      return false;
+    }
   }
 
   static logout(): void {

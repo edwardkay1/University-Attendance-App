@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { mockStudents } from '../../data/mockStudentData';
-import { mockCourses } from '../../data/mockLecturerData';
+import { mockCourses, mockLecturers } from '../../data/mockLecturerData';
 import { getCourseStats } from '../../data/mockAdminData';
-import { Course } from '../../types/lecturer';
+import type { Course } from '../../types/lecturer';
 
 const Courses: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');

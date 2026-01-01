@@ -17,7 +17,10 @@ export const lecturerCredentials: Array<{
       email: 'sarah.johnson@university.edu',
       department: 'Computer Science',
       employeeId: 'EMP001',
-      courses: ['CS101', 'CS201']
+      facultyId: 'engineering',
+      courses: ['CS101', 'CS201'],
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -30,7 +33,10 @@ export const lecturerCredentials: Array<{
       email: 'michael.brown@university.edu',
       department: 'Mathematics',
       employeeId: 'EMP002',
-      courses: ['MATH101', 'MATH201']
+      facultyId: 'science',
+      courses: ['MATH101', 'MATH201'],
+      isApproved: true,
+      createdAt: '2024-01-16T10:00:00Z'
     }
   },
   {
@@ -43,8 +49,10 @@ export const lecturerCredentials: Array<{
       email: 'emily.davis@university.edu',
       department: 'Physics',
       employeeId: 'EMP003',
-      courses: ['PHY101', 'PHY201']
-    }
+      facultyId: 'science',
+      courses: ['PHY101', 'PHY201'],
+      isApproved: true,
+      createdAt: '2024-01-17T10:00:00Z'
   }
 ];
 

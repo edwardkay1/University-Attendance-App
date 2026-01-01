@@ -1,7 +1,8 @@
 import { useState } from "react";
 import PageWrapper from "../../components/layout/lecturer/PageWrapper";
 import Button from "../../components/common/Button";
-import { getCoursesByLecturerId, type Course } from "../../data/mockLecturerData";
+import { getCoursesByLecturerId } from "../../data/mockLecturerData";
+import type { Course } from "../../types/lecturer";
 import { getCurrentLecturer } from "../../data/authService";
 import { mockStudents, mockAttendanceRecords } from "../../data/mockStudentData";
 

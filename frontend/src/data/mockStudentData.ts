@@ -9,6 +9,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU001',
     course: 'Computer Science',
     year: 3,
+    facultyId: 'engineering',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: '2',
@@ -17,6 +20,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU002',
     course: 'Computer Science',
     year: 2,
+    facultyId: 'engineering',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: '3',
@@ -25,6 +31,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU003',
     course: 'Mathematics',
     year: 3,
+    facultyId: 'science',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: '4',
@@ -33,6 +42,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU004',
     course: 'Physics',
     year: 2,
+    facultyId: 'science',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: '5',
@@ -41,6 +53,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU005',
     course: 'Chemistry',
     year: 4,
+    facultyId: 'science',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: '6',
@@ -49,6 +64,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU006',
     course: 'Biology',
     year: 3,
+    facultyId: 'science',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: '7',
@@ -57,6 +75,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU007',
     course: 'Engineering',
     year: 2,
+    facultyId: 'engineering',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: '8',
@@ -65,6 +86,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU008',
     course: 'Business',
     year: 3,
+    facultyId: 'business',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: '9',
@@ -73,6 +97,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU009',
     course: 'History',
     year: 4,
+    facultyId: 'arts',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: '10',
@@ -81,7 +108,9 @@ export const mockStudents: Student[] = [
     studentId: 'STU010',
     course: 'Literature',
     year: 2,
-  },
+    facultyId: 'arts',
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
 ];
 
 export const mockAttendanceRecords: AttendanceRecord[] = [

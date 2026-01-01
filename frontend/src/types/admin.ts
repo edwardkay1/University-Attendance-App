@@ -1,9 +1,22 @@
+import type { Student } from './student';
+import type { Lecturer, Course } from './lecturer';
+
 export interface Admin {
   id: string;
   name: string;
   email: string;
-  role: 'admin' | 'super_admin';
+  role: 'faculty_admin' | 'super_admin';
+  facultyId?: string; // For faculty admins
   permissions: string[];
+  isApproved: boolean;
+  createdAt: string;
+}
+
+export interface Faculty {
+  id: string;
+  name: string;
+  domain: string; // e.g., 'engineering', 'science', 'arts'
+  deanId?: string;
 }
 
 export interface SystemStats {
@@ -52,7 +65,3 @@ export interface ActivityLog {
   timestamp: string;
   details?: string;
 }
-
-// Re-export types from other modules for convenience
-export type { Student } from './student';
-export type { Lecturer, Course } from './lecturer';

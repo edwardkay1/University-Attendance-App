@@ -1,23 +1,28 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import StudentDashboard from "./pages/student/Dashboard";
-import StudentAttendance from "./pages/student/Attendance";
-import LecturerDashboard from "./pages/lecturer/Dashboard";
-import LecturerClasses from "./pages/lecturer/LecturerClasses";
-import LecturerMarkAttendance from "./pages/lecturer/MarkAttendance";
-import AdminDashboard from "./pages/admin/Dashboard";
-import AdminUsers from "./pages/admin/Users";
-import AdminCourses from "./pages/admin/Courses";
-import AdminPageWrapper from "./components/layout/admin/PageWrapper";
-import RequireAuth from "./auth/RequireAuth";
-import Login from "./auth/Login";
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+// Pages
+import Login from './auth/Login';
+import Register from './auth/Register';
+import StudentDashboard from './pages/student/Dashboard';
+import StudentAttendance from './pages/student/Attendance';
+import LecturerDashboard from './pages/lecturer/Dashboard';
+import LecturerClasses from './pages/lecturer/LecturerClasses';
+import LecturerMarkAttendance from './pages/lecturer/MarkAttendance';
+import AdminDashboard from './pages/admin/Dashboard';
+import AdminUsers from './pages/admin/Users';
+import AdminCourses from './pages/admin/Courses';
+import SuperAdminDashboard from './pages/admin/SuperAdminDashboard';
+
+// Components
+import RequireAuth from './auth/RequireAuth';
+import AdminPageWrapper from './components/layout/admin/PageWrapper';
 
 export default function AppRoutes() {
-  console.log('AppRoutes component rendering');
-
   return (
     <Routes>
-      {/* Login Route */}
+      {/* Public Routes */}
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
 
       {/* Student Routes */}
       <Route
@@ -55,7 +60,7 @@ export default function AppRoutes() {
         }
       />
       <Route
-        path="/lecturer/attendance"
+        path="/lecturer/mark-attendance"
         element={
           <RequireAuth>
             <LecturerMarkAttendance />
@@ -85,23 +90,21 @@ export default function AppRoutes() {
         }
       />
       <Route
-        path="/admin/courses"
+        path="/admin/super"
         element={
           <RequireAuth>
             <AdminPageWrapper>
-              <AdminCourses />
+              <SuperAdminDashboard />
             </AdminPageWrapper>
           </RequireAuth>
         }
       />
 
-      {/* Default redirect */}
-      <Route path="*" element={
-        <>
-          {console.log('Redirecting to /login')}
-          <Navigate to="/login" replace />
-        </>
-      } />
+      {/* Root route - redirect to login */}
+      <Route path="/" element={<Navigate to="/login" replace />} />
+
+      {/* Default redirect to login */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
 }

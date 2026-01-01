@@ -1,6 +1,30 @@
-import type { Admin, SystemStats, CourseStats, ActivityLog } from '../types/admin';
+import type { Admin, Faculty, SystemStats, CourseStats, ActivityLog } from '../types/admin';
+import type { Student } from '../types/student';
+import type { Lecturer, Course } from '../types/lecturer';
 import { mockStudents, mockAttendanceRecords } from './mockStudentData';
 import { mockLecturers, mockCourses, mockQRCodeSessions } from './mockLecturerData';
+
+// Faculty Mock Data
+export const mockFaculties: Faculty[] = [
+  {
+    id: 'science',
+    name: 'Faculty of Science',
+    domain: 'science',
+    deanId: 'LEC001'
+  },
+  {
+    id: 'agriculture',
+    name: 'Faculty of Agriculture',
+    domain: 'agriculture',
+    deanId: 'LEC002'
+  },
+  {
+    id: 'fobe',
+    name: 'Faculty of Business and Economics',
+    domain: 'fobe',
+    deanId: 'LEC003'
+  }
+];
 
 // Admin Mock Data
 export const mockAdmins: Admin[] = [
@@ -9,14 +33,39 @@ export const mockAdmins: Admin[] = [
     name: 'System Administrator',
     email: 'admin@university.edu',
     role: 'super_admin',
-    permissions: ['all']
+    permissions: ['all'],
+    isApproved: true,
+    createdAt: new Date().toISOString()
   },
   {
     id: 'ADM002',
-    name: 'Attendance Manager',
-    email: 'attendance@university.edu',
-    role: 'admin',
-    permissions: ['manage_users', 'view_reports', 'manage_courses']
+    name: 'Science Faculty Admin',
+    email: 'science.admin@university.edu',
+    role: 'faculty_admin',
+    facultyId: 'science',
+    permissions: ['manage_users', 'view_reports', 'manage_courses', 'approve_registrations'],
+    isApproved: true,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'ADM003',
+    name: 'Agriculture Faculty Admin',
+    email: 'agriculture.admin@university.edu',
+    role: 'faculty_admin',
+    facultyId: 'agriculture',
+    permissions: ['manage_users', 'view_reports', 'manage_courses', 'approve_registrations'],
+    isApproved: true,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'ADM004',
+    name: 'FOBE Faculty Admin',
+    email: 'fobe.admin@university.edu',
+    role: 'faculty_admin',
+    facultyId: 'fobe',
+    permissions: ['manage_users', 'view_reports', 'manage_courses', 'approve_registrations'],
+    isApproved: true,
+    createdAt: new Date().toISOString()
   }
 ];
 

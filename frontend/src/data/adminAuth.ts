@@ -16,7 +16,9 @@ export const adminCredentials: Array<{
       name: 'System Administrator',
       email: 'admin@university.edu',
       role: 'super_admin',
-      permissions: ['all']
+      permissions: ['all'],
+      isApproved: true,
+      createdAt: '2024-01-01T00:00:00Z'
     }
   },
   {
@@ -27,8 +29,11 @@ export const adminCredentials: Array<{
       id: 'ADM002',
       name: 'Attendance Manager',
       email: 'attendance@university.edu',
-      role: 'admin',
-      permissions: ['manage_users', 'view_reports', 'manage_courses']
+      role: 'faculty_admin',
+      facultyId: 'engineering',
+      permissions: ['manage_users', 'view_reports', 'manage_courses'],
+      isApproved: true,
+      createdAt: '2024-01-01T00:00:00Z'
     }
   }
 ];

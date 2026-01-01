@@ -1,13 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AttendanceStat } from '../../components/cards/AttendanceStat';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { getSystemStats, getRecentActivity, getCourseStats } from '../../data/mockAdminData';
-import { ActivityLog } from '../../types/admin';
+import AddUserModal from '../../components/modals/AddUserModal';
+import CreateCourseModal from '../../components/modals/CreateCourseModal';
+import ViewReportsModal from '../../components/modals/ViewReportsModal';
+import QRScanner from '../../components/common/QRScanner';
 
 const AdminDashboard: React.FC = () => {
   const systemStats = getSystemStats();
   const recentActivity = getRecentActivity(5);
   const courseStats = getCourseStats();
+
+  const [modals, setModals] = useState({
+    addUser: false,
+    createCourse: false,
+    viewReports: false,
+    scanner: false,
+  });
+
+  const openModal = (modalName: keyof typeof modals) => {
+    setModals(prev => ({ ...prev, [modalName]: true }));
+  };
+
+  const closeModal = (modalName: keyof typeof modals) => {
+    setModals(prev => ({ ...prev, [modalName]: false }));
+  };
+
+  const handleUserCreated = () => {
+    // Refresh data or show success message
+    console.log('User created successfully');
+  };
+
+  const handleCourseCreated = () => {
+    // Refresh data or show success message
+    console.log('Course created successfully');
+  };
+
+  const handleScanResult = (result: string) => {
+    console.log('Scanned:', result);
+    alert(`Scanned: ${result}\n\nThis could be used for student ID verification, QR code validation, or other administrative tasks.`);
+    closeModal('scanner');
+  };
+
+  const handleScanError = (error: string) => {
+    console.error('Scan error:', error);
+    alert('Scanning failed: ' + error);
+  };
 
   const formatTimestamp = (timestamp: string) => {
     const date = new Date(timestamp);
@@ -28,7 +67,8 @@ const AdminDashboard: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <>
+      <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -36,11 +76,11 @@ const AdminDashboard: React.FC = () => {
           <p className="mt-1 text-gray-600">System overview and management</p>
         </div>
         <div className="flex space-x-3">
-          <button className="px-4 py-2 font-medium text-white transition-colors bg-blue-600 rounded-lg hover:bg-blue-700">
+          <button
+            onClick={() => openModal('viewReports')}
+            className="px-4 py-2 font-medium text-white transition-colors bg-blue-600 rounded-lg hover:bg-blue-700"
+          >
             Generate Report
-          </button>
-          <button className="px-4 py-2 font-medium text-white transition-colors bg-green-600 rounded-lg hover:bg-green-700">
-            System Settings
           </button>
         </div>
       </div>
@@ -109,7 +149,7 @@ const AdminDashboard: React.FC = () => {
         <div className="p-6 bg-white border rounded-lg shadow-sm">
           <h3 className="mb-4 text-lg font-semibold text-gray-900">Recent Activity</h3>
           <div className="space-y-4">
-            {recentActivity.map((activity: ActivityLog) => (
+            {recentActivity.map((activity) => (
               <div key={activity.id} className="flex items-start p-3 space-x-3 rounded-lg bg-gray-50">
                 <div className="flex-shrink-0">
                   <div className={`w-2 h-2 rounded-full mt-2 ${
@@ -154,25 +194,101 @@ const AdminDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Quick Actions */}
-      <div className="p-6 bg-white border rounded-lg shadow-sm">
+        {/* Quick Actions */}
         <h3 className="mb-4 text-lg font-semibold text-gray-900">Quick Actions</h3>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <button className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-blue-500 hover:bg-blue-50">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <button
+            onClick={() => openModal('addUser')}
+            className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-blue-500 hover:bg-blue-50"
+          >
             <span className="text-2xl">👤</span>
             <span className="text-sm font-medium text-gray-700">Add New User</span>
           </button>
-          <button className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-green-500 hover:bg-green-50">
+          <button
+            onClick={() => openModal('createCourse')}
+            className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-green-500 hover:bg-green-50"
+          >
             <span className="text-2xl">📚</span>
             <span className="text-sm font-medium text-gray-700">Create Course</span>
           </button>
-          <button className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-purple-500 hover:bg-purple-50">
+          <button
+            onClick={() => openModal('viewReports')}
+            className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-purple-500 hover:bg-purple-50"
+          >
             <span className="text-2xl">📊</span>
             <span className="text-sm font-medium text-gray-700">View Reports</span>
           </button>
+          <button
+            onClick={() => openModal('scanner')}
+            className="flex items-center justify-center p-4 space-x-2 transition-colors border-2 border-gray-300 border-dashed rounded-lg hover:border-red-500 hover:bg-red-50"
+          >
+            <span className="text-2xl">📱</span>
+            <span className="text-sm font-medium text-gray-700">Scan QR Code</span>
+          </button>
         </div>
       </div>
-    </div>
+
+      <AddUserModal
+        isOpen={modals.addUser}
+        onClose={() => closeModal('addUser')}
+        onUserCreated={handleUserCreated}
+      />
+      <CreateCourseModal
+        isOpen={modals.createCourse}
+        onClose={() => closeModal('createCourse')}
+        onCourseCreated={handleCourseCreated}
+      />
+      <ViewReportsModal
+        isOpen={modals.viewReports}
+        onClose={() => closeModal('viewReports')}
+      />
+
+      {/* QR Scanner Modal */}
+      {modals.scanner && (
+        <div className="fixed inset-0 z-50 overflow-y-auto">
+          <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" onClick={() => closeModal('scanner')}></div>
+
+            <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-medium text-gray-900">Scan QR Code</h3>
+                <button
+                  onClick={() => closeModal('scanner')}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-sm text-gray-600">
+                  Use this scanner for administrative tasks such as verifying student IDs, scanning QR codes, or other identification purposes.
+                </p>
+
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                  <QRScanner
+                    onScan={handleScanResult}
+                    onError={handleScanError}
+                    isActive={modals.scanner}
+                  />
+                </div>
+
+                <div className="flex justify-end">
+                  <button
+                    onClick={() => closeModal('scanner')}
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

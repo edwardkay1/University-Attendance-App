@@ -1,5 +1,8 @@
 import type { Lecturer, Course, CourseSchedule, QRCodeSession } from '../types/lecturer';
 
+// Re-export types for convenience
+export type { Course, CourseSchedule, QRCodeSession };
+
 // Mock Lecturer Data
 export const mockLecturers: Lecturer[] = [
   {
@@ -8,7 +11,10 @@ export const mockLecturers: Lecturer[] = [
     email: 'sarah.johnson@university.edu',
     department: 'Computer Science',
     employeeId: 'EMP001',
-    courses: ['CS101', 'CS201']
+    facultyId: 'engineering',
+    courses: ['CS101', 'CS201'],
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: 'LEC002',
@@ -16,7 +22,10 @@ export const mockLecturers: Lecturer[] = [
     email: 'michael.chen@university.edu',
     department: 'Mathematics',
     employeeId: 'EMP002',
-    courses: ['MATH201', 'MATH301']
+    facultyId: 'science',
+    courses: ['MATH201', 'MATH301'],
+    isApproved: true,
+    createdAt: '2024-01-16T10:00:00Z'
   },
   {
     id: 'LEC003',
@@ -24,7 +33,10 @@ export const mockLecturers: Lecturer[] = [
     email: 'emily.rodriguez@university.edu',
     department: 'Physics',
     employeeId: 'EMP003',
-    courses: ['PHY101', 'PHY201']
+    facultyId: 'science',
+    courses: ['PHY101', 'PHY201'],
+    isApproved: true,
+    createdAt: '2024-01-17T10:00:00Z'
   }
 ];
 
@@ -34,6 +46,7 @@ export const mockCourses: Course[] = [
     name: 'Introduction to Programming',
     code: 'CS101',
     department: 'Computer Science',
+    facultyId: 'engineering',
     lecturerId: 'LEC001',
     schedule: [
       {
@@ -50,13 +63,16 @@ export const mockCourses: Course[] = [
         location: 'Room 101',
         duration: 90
       }
-    ]
+    ],
+    isApproved: true,
+    createdAt: '2024-01-15T10:00:00Z'
   },
   {
     id: 'MATH201',
     name: 'Advanced Calculus',
     code: 'MATH201',
     department: 'Mathematics',
+    facultyId: 'science',
     lecturerId: 'LEC002',
     schedule: [
       {
@@ -73,13 +89,16 @@ export const mockCourses: Course[] = [
         location: 'Room 203',
         duration: 120
       }
-    ]
+    ],
+    isApproved: true,
+    createdAt: '2024-01-16T10:00:00Z'
   },
   {
     id: 'PHY101',
     name: 'Physics Fundamentals',
     code: 'PHY101',
     department: 'Physics',
+    facultyId: 'science',
     lecturerId: 'LEC003',
     schedule: [
       {
@@ -96,8 +115,9 @@ export const mockCourses: Course[] = [
         location: 'Lab 5',
         duration: 120
       }
-    ]
-  }
+    ],
+    isApproved: true,
+    createdAt: '2024-01-17T10:00:00Z'
 ];
 
 export const mockQRCodeSessions: QRCodeSession[] = [

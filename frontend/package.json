@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "jspdf": "^3.0.4",
     "qr-scanner": "^1.4.2",
     "qrcode": "^1.5.4",
     "react": "^19.2.0",

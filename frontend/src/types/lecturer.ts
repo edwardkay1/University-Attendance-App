@@ -4,7 +4,12 @@ export interface Lecturer {
   email: string;
   department: string;
   employeeId: string;
+  facultyId: string;
   courses: string[];
+  isApproved: boolean;
+  createdAt: string;
+  approvedBy?: string; // Admin ID who approved
+  approvedAt?: string;
 }
 
 export interface Course {
@@ -12,8 +17,13 @@ export interface Course {
   name: string;
   code: string;
   department: string;
+  facultyId: string;
   lecturerId: string;
   schedule: CourseSchedule[];
+  isApproved: boolean;
+  createdAt: string;
+  approvedBy?: string; // Admin ID who approved
+  approvedAt?: string;
 }
 
 export interface CourseSchedule {

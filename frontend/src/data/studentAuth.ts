@@ -18,6 +18,9 @@ export const studentCredentials: Array<{
       studentId: 'STU001',
       course: 'Computer Science',
       year: 3,
+      facultyId: 'engineering',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -31,6 +34,9 @@ export const studentCredentials: Array<{
       studentId: 'STU002',
       course: 'Computer Science',
       year: 2,
+      facultyId: 'engineering',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -44,6 +50,9 @@ export const studentCredentials: Array<{
       studentId: 'STU003',
       course: 'Mathematics',
       year: 1,
+      facultyId: 'science',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -57,6 +66,9 @@ export const studentCredentials: Array<{
       studentId: 'STU004',
       course: 'Physics',
       year: 4,
+      facultyId: 'science',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -70,6 +82,9 @@ export const studentCredentials: Array<{
       studentId: 'STU005',
       course: 'Chemistry',
       year: 2,
+      facultyId: 'science',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -83,6 +98,9 @@ export const studentCredentials: Array<{
       studentId: 'STU006',
       course: 'Biology',
       year: 3,
+      facultyId: 'science',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -96,6 +114,9 @@ export const studentCredentials: Array<{
       studentId: 'STU007',
       course: 'Engineering',
       year: 2,
+      facultyId: 'engineering',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -109,6 +130,9 @@ export const studentCredentials: Array<{
       studentId: 'STU008',
       course: 'Business',
       year: 3,
+      facultyId: 'business',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -122,6 +146,9 @@ export const studentCredentials: Array<{
       studentId: 'STU009',
       course: 'History',
       year: 4,
+      facultyId: 'arts',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   },
   {
@@ -135,6 +162,9 @@ export const studentCredentials: Array<{
       studentId: 'STU010',
       course: 'Literature',
       year: 2,
+      facultyId: 'arts',
+      isApproved: true,
+      createdAt: '2024-01-15T10:00:00Z'
     }
   }
 ];

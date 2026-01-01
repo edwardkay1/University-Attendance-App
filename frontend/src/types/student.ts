@@ -5,7 +5,12 @@ export interface Student {
   studentId: string;
   course: string;
   year: number;
+  facultyId: string;
   profileImage?: string;
+  isApproved: boolean;
+  createdAt: string;
+  approvedBy?: string; // Admin ID who approved
+  approvedAt?: string;
 }
 
 export interface AttendanceRecord {
