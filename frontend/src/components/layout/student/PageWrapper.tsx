@@ -42,7 +42,7 @@ export default function PageWrapper({ children }: PageWrapperProps) {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <h1 className="text-2xl font-black tracking-tight text-slate-900">Student Portal</h1>
-                  <p className="text-xs font-bold text-[#006838] uppercase tracking-widest">Uganda Martyrs University</p>
+                  <p className="text-xs font-bold text-[#006838] uppercase tracking-widest">University</p>
                 </div>
               </div>
 

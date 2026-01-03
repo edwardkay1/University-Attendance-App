@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick, userRole }) => {
                   {getRoleDisplay()}
                 </h1>
                 <p className="text-[10px] font-bold text-[#F9A825] uppercase tracking-[0.2em] mt-1">
-                  Uganda Martyrs University
+                  University
                 </p>
               </div>
             </Link>

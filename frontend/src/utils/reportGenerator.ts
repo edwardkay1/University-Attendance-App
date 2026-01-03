@@ -8,7 +8,7 @@ import { mockLecturers, mockCourses } from '../data/mockLecturerData';
  */
 const getUMUHeader = (title: string) => `
 --------------------------------------------------------------------------------
-         UGANDA MARTYRS UNIVERSITY - ACADEMIC REGISTRY SYSTEM
+         UNIVERSITY - ACADEMIC REGISTRY SYSTEM
                      OFFICIAL ${title.toUpperCase()}
 --------------------------------------------------------------------------------
 Generated: ${new Date().toLocaleDateString('en-GB')} | ${new Date().toLocaleTimeString()}

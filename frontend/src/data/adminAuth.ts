@@ -9,7 +9,7 @@ export const adminCredentials: Array<{
 }> = [
   {
     id: 'ADM001',
-    email: 'admin@university.edu',
+    email: 'edward@university',
     password: 'admin123',
     admin: {
       id: 'ADM001',

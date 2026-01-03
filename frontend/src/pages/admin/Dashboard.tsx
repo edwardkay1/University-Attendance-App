@@ -33,7 +33,7 @@ export default function AdminDashboard() {
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
         <div>
           <h1 className="text-3xl font-black tracking-tight text-slate-900">System Command</h1>
-          <p className="font-medium text-slate-500">Global overview of Uganda Martyrs University attendance metrics.</p>
+          <p className="font-medium text-slate-500">Global overview of University attendance metrics.</p>
         </div>
         <div className="flex items-center gap-3">
           <Button variant="glass" onClick={() => toggleModal('viewReports', true)} className="border-slate-200">

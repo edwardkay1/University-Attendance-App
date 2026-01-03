@@ -1,6 +1,6 @@
-# Uganda Martyrs University - Attendance Management System
+# University - Attendance Management System
 
-A comprehensive web-based attendance tracking system built with React, TypeScript, and Tailwind CSS for Uganda Martyrs University. The system supports role-based access for students, lecturers, and administrators with QR code-based attendance marking.
+A comprehensive web-based attendance tracking system built with React, TypeScript, and Tailwind CSS for  University. The system supports role-based access for students, lecturers, and administrators with QR code-based attendance marking.
 
 ## 🚀 Features
 
@@ -317,5 +317,5 @@ For questions or support, please open an issue in the repository.
 
 ---
 
-**Built with ❤️ for Uganda Martyrs University**
+**Built with ❤️ for University**
 ```

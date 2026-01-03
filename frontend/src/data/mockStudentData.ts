@@ -4,8 +4,8 @@ import type{ Student, AttendanceRecord, StudentStats } from '../types/student';
 export const mockStudents: Student[] = [
   {
     id: '1',
-    name: 'Alice Johnson',
-    email: 'alice.johnson@umu.ac.ug',
+    name: 'Edward Kayiira',
+    email: 'kayiira@umu.ac.ug',
     studentId: 'STU001',
     course: 'Computer Science',
     year: 3,
